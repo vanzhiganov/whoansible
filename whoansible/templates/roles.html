@@ -1,0 +1,17 @@
+{% extends '__layout.html' %}
+
+{% block content %}
+<ul>
+    {% for role in roles %}
+        <li><a href="{{ url_for('roles_html', role=role) }}">{{ role }}</a></li>
+    {% endfor %}
+</ul>
+{% if roles %}
+<hr />
+<ul>
+{% for role in roles %}
+<li>{{ role }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
