@@ -1,0 +1,8 @@
+[test]
+localhost ansible_connection=local
+server1 ansible_connection=ssh ansible_user=root
+
+[test]
+container1
+container2
+container3
