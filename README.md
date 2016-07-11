@@ -3,6 +3,15 @@
 Ansible Manager
 
 
+## TODO
+
+- [x] See host and groups
+- [ ] Manage host and groups
+- [ ] Inventory
+- [ ] Create role
+- [ ] Deploy role to groups, hosts
+
+
 ## Install & run
 
 Off course, in first time you need to clone WhoAnsible from repo.
@@ -35,6 +44,9 @@ pip install -r requirements.txt
 
 ```
 mkdir -p ansible/{facts,group_vars,host_vars}
+```
+
+```
 touch ansible/hosts
 ```
 
