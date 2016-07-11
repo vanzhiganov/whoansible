@@ -1,17 +1,39 @@
 {% extends '__layout.html' %}
 
 {% block content %}
-<ul>
-    {% for group in groups %}
-        <li><a href="{{ url_for('inventory_html', group=group) }}">{{ group }}</a></li>
-    {% endfor %}
-</ul>
-{% if hosts %}
-<hr />
-<ul>
-{% for host in hosts %}
-<li>{{ host }}</li>
-{% endfor %}
-</ul>
-{% endif %}
+    <ul>
+        {% for group in groups %}
+            <li><a href="{{ url_for('inventory_html', group=group) }}">{{ group }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if group_vars %}
+        <hr />
+        <h2>Group vars</h2>
+        <ul>
+            {% for var in group_vars %}
+                <li>{{ var }}: {{ group_vars[var] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if hosts %}
+        <hr />
+        <h2>Hosts</h2>
+        <ul>
+            {% for host in hosts %}
+                <li><a href="{{ url_for('inventory_html', group=group, host=host) }}">{{ host }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if host_vars %}
+        <hr />
+        <h2>Host vars</h2>
+        <ul>
+            {% for var in host_vars %}
+                <li>{{ var }}: {{ host_vars[var] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

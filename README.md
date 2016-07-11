@@ -6,6 +6,7 @@ Ansible Manager
 ## TODO
 
 - [x] See host and groups
+- [x] See variables for host and groups
 - [ ] Manage host and groups
 - [ ] Inventory
 - [ ] Create role
@@ -43,7 +44,7 @@ pip install -r requirements.txt
 *Create default ansible dir structure*
 
 ```
-mkdir -p ansible/{facts,group_vars,host_vars}
+mkdir -p ansible/{group_vars,host_vars}
 ```
 
 ```

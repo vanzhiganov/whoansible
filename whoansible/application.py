@@ -23,10 +23,23 @@ def inventory_html():
     # print sa_inv.serialize()
     if request.args.get('group'):
         hosts = sa_inv.get_hosts(request.args.get('group'))
+        group_vars = sa_inv.get_group_variables(groupname=request.args.get('group'))
     else:
         hosts = sa_inv.get_hosts()
+        group_vars = None
 
-    return render_template('inventory.html', groups=sa_inv.get_groups(), hosts=hosts)
+    if request.args.get('host'):
+        host_vars = sa_inv.get_host_vars(host=sa_inv.get_host(request.args.get('host')))
+    else:
+        host_vars = None
+
+    return render_template(
+        'inventory.html',
+        group=request.args.get('group'),
+        host=request.args.get('host'),
+        groups=sa_inv.get_groups(), hosts=hosts,
+        group_vars=group_vars, host_vars=host_vars
+    )
 
 
 @app.route('/roles.html')
