@@ -1,0 +1,17 @@
+{% extends '__layout.html' %}
+
+{% block content %}
+<ul>
+    {% for group in groups %}
+        <li><a href="{{ url_for('inventory_html', group=group) }}">{{ group }}</a></li>
+    {% endfor %}
+</ul>
+{% if hosts %}
+<hr />
+<ul>
+{% for host in hosts %}
+<li>{{ host }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
